@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<body>
+<script>
+function sleep_ms(millis){
+	var t = (new Date()).getTime();
+	var i = 0;
+	while ((new Date()).getTime()-t<millis){
+		i++;
+	}
+}
+
+function backward(){
+	http = new XMLHttpRequest();
+	http.open('GET','BACKWARD',true);
+	http.send();
+	sleep_ms(100);
+	http.open('GET','BACKWARD',true);
+	http.send();
+	sleep_ms(100);
+	http.open('GET','BACKWARD',true);
+	http.send();
+}
+
+function stop(){
+	http = new XMLHttpRequest();
+	http.open('GET','STOP',true);
+	http.send();
+	sleep_ms(100);
+	http.open('GET','STOP',true);
+	http.send();
+	sleep_ms(100);
+	http.open('GET','STOP',true);
+	http.send();
+}
+
+</script>
+<form>
+<button><img src="Arrow-Down.png" alt="No Picture" style="vertical-align:middle" onmousedown="backward()" onmouseup="stop()"></button>
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script>
+function sleep_ms(millis){
+	var t = (new Date()).getTime();
+	var i = 0;
+	while ((new Date()).getTime()-t<millis){
+		i++;
+	}
+}
+
+function forward(){
+	var Http = new XMLHttpRequest();
+	Http.open('GET','FORWARD',true);
+	Http.send();
+	sleep_ms(100);
+	Http.open('GET','FORWARD',true);
+	Http.send();
+	sleep_ms(100);
+	Http.open('GET','FORWARD',true);
+	Http.send();
+}
+
+function stop(){
+	var Http = new XMLHttpRequest();
+	Http.open('GET','STOP',true);
+	Http.send();
+	sleep_ms(100);
+	Http.open('GET','STOP',true);
+	Http.send();
+	sleep_ms(100);
+	Http.open('GET','STOP',true);
+	Http.send();
+}
+</script>
+<form>
+<button><img src="Arrow-Up.png" alt="No Picture" style="vertical-align:middle" onmousedown="forward()" onmouseup="stop()"></button>
+</form>
+</body>
+</html>
